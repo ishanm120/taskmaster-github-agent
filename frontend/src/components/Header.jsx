@@ -9,7 +9,7 @@ export function Header({ theme, toggleTheme, onOpenForm }) {
           <CheckSquare size={26} strokeWidth={2.5} />
         </div>
         <div>
-          <h1 className="brand-title">TaskMaster Pro</h1>
+          <h1 className="brand-title">TaskMaster Pro-Github</h1>
           <p className="brand-subtitle">Smart & sleek task management</p>
         </div>
       </div>
