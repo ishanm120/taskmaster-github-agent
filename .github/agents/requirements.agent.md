@@ -1,7 +1,7 @@
 ---
 name: requirements
 description: Analyze Jira, Confluence, document or direct requirements; prepare requirements.md and stop at Gate 1.
-tools: ['read', 'search', 'edit']
+tools: ['read', 'search', 'edit','my-mcp-server-68f52545/*']
 handoffs:
   - label: Continue to Architecture
     agent: architect
