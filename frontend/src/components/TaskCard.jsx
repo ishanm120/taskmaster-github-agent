@@ -25,6 +25,8 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
     }
   };
 
+  const dueDateText = task.due_date ? formatDate(task.due_date) : 'No Due Date';
+
   return (
     <div className={`glass-card task-card ${isCompleted ? 'completed' : ''}`} data-task-id={task.id}>
       <div 
@@ -67,12 +69,10 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
             </span>
           )}
 
-          {task.due_date && (
-            <span className="task-date">
-              <Calendar size={12} />
-              {formatDate(task.due_date)}
-            </span>
-          )}
+          <span className="task-date">
+            <Calendar size={12} />
+            {dueDateText}
+          </span>
         </div>
       </div>
     </div>
