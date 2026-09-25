@@ -7,7 +7,9 @@
     "start": "npm --prefix backend start & npm --prefix frontend run dev",
     "dev:backend": "npm --prefix backend start",
     "dev:frontend": "npm --prefix frontend run dev",
+    "test": "node --test tests/*.test.js",
     "test:backend": "npm --prefix backend test",
+    "test:docs": "node --test tests/docs-sync.test.js",
     "test:e2e": "npm --prefix e2e test"
   }
 }

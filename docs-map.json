@@ -1,0 +1,8 @@
+{
+  "src/**/*.js": [
+    "docs/source-overview.md"
+  ],
+  "src/**/*.jsx": [
+    "docs/source-overview.md"
+  ]
+}
