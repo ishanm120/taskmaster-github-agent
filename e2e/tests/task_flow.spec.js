@@ -4,7 +4,7 @@ test.describe('Task Management V1 Core Workflows', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:3000');
     // Ensure app renders properly
-    await expect(page.locator('h1.brand-title')).toHaveText('TaskMaster Pro');
+    await expect(page.locator('h1.brand-title')).toHaveText('TaskMaster Pro-Github');
   });
 
   test('1. Create a new task', async ({ page }) => {
@@ -79,5 +79,25 @@ test.describe('Task Management V1 Core Workflows', () => {
 
     // Verify task is removed from DOM
     await expect(page.locator('.task-title', { hasText: taskTitle })).not.toBeVisible();
+  });
+
+  test('5. Show due dates and a fallback when no due date exists', async ({ page }) => {
+    const taskTitle = `Due Date Check ${Date.now()}`;
+
+    await page.click('#add-task-btn');
+    await page.fill('#task-title-input', taskTitle);
+    await page.fill('#task-duedate-input', '2026-09-25');
+    await page.click('#save-task-submit');
+
+    const taskCard = page.locator('.task-card', { hasText: taskTitle });
+    await expect(taskCard.locator('.task-date')).toContainText('2026');
+
+    const noDateTaskTitle = `No Due Date Task ${Date.now()}`;
+    await page.click('#add-task-btn');
+    await page.fill('#task-title-input', noDateTaskTitle);
+    await page.click('#save-task-submit');
+
+    const noDateCard = page.locator('.task-card', { hasText: noDateTaskTitle });
+    await expect(noDateCard.locator('.task-date')).toHaveText('No Due Date');
   });
 });
