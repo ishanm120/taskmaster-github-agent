@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "generatedAt": "2026-09-28T19:37:22.951Z",
+    "rangeLabel": "all",
+    "agents": [
+      "claude"
+    ],
+    "projectFilter": "all",
+    "totals": {
+      "sessions": 1,
+      "durationMs": 242824,
+      "turns": 2,
+      "files": 0,
+      "netLines": 0,
+      "toolCallsTotal": 5,
+      "toolSuccessRate": 100,
+      "totalCostUSD": 0.06757868,
+      "cacheReadCostUSD": 0.018212680000000002,
+      "pricedSessions": 1
+    },
+    "unpricedModels": [],
+    "estimatedModels": [],
+    "localModels": [],
+    "coverage": [
+      {
+        "agentName": "claude",
+        "total": 1,
+        "priced": 1,
+        "withLog": 1
+      }
+    ],
+    "userEmail": "ishan_mittal@epam.com",
+    "periodStart": "2026-09-28T19:33:17.313Z",
+    "periodEnd": "2026-09-28T19:37:20.137Z"
+  },
+  "sessions": [
+    {
+      "sessionId": "5bbf0d2f-934c-44ac-ac34-5d6cac5220ae",
+      "agentName": "claude",
+      "provider": "ai-run-sso",
+      "title": "Connectivity test only. Using the GitHub CLI, verify access to: ishanm120/taskmaster-github-agent Execute: 1. gh auth status 2. gh repo view ishanm120/taskmaster-github-agent 3. git remote -v 4. git branch --show-current 5. gh pr list --state open Report the authenticated account, repository, current branch, and existing open PRs. Do not create branches, commit, push, modify files, create PRs, or merge anything.",
+      "project": "/Users/Ishan_Mittal/taskmaster-github-agent",
+      "branch": "claude-demo",
+      "startTime": 1790623997313,
+      "durationMs": 242824,
+      "turns": 2,
+      "fileOps": 0,
+      "linesAdded": 0,
+      "linesRemoved": 0,
+      "linesModified": 0,
+      "netLines": 0,
+      "filesChanged": 0,
+      "filesWritten": 0,
+      "filesEdited": 0,
+      "toolCallsTotal": 5,
+      "toolCallsSuccess": 5,
+      "toolCallsFailure": 0,
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "languages": [],
+      "tools": [
+        {
+          "toolName": "Bash",
+          "totalCalls": 5,
+          "successCount": 5,
+          "failureCount": 0,
+          "successRate": 100
+        }
+      ],
+      "tokens": {
+        "input": 4,
+        "output": 676,
+        "cacheRead": 86324,
+        "cacheCreation": 10393,
+        "cacheCreation1h": 10393,
+        "total": 97397
+      },
+      "costUSD": 0.06757868,
+      "cacheReadCostUSD": 0.018212680000000002,
+      "perModelCost": [
+        {
+          "model": "claude-sonnet-5",
+          "tokens": {
+            "input": 2,
+            "output": 422,
+            "cacheRead": 38930,
+            "cacheCreation": 8464,
+            "cacheCreation1h": 8464,
+            "total": 47818
+          },
+          "costUSD": 0.045866,
+          "unpriced": false
+        },
+        {
+          "model": "claude-sonnet-5",
+          "tokens": {
+            "input": 2,
+            "output": 254,
+            "cacheRead": 47394,
+            "cacheCreation": 1929,
+            "cacheCreation1h": 1929,
+            "total": 49579
+          },
+          "costUSD": 0.02171268,
+          "unpriced": false
+        }
+      ],
+      "hadLog": true,
+      "agentSessionFile": "/Users/Ishan_Mittal/.claude/projects/-Users-Ishan-Mittal-taskmaster-github-agent/7a84211b-9325-451e-953c-8b95ec192d98.jsonl",
+      "costSeries": [
+        {
+          "t": 1790624004616,
+          "cost": 0.045866,
+          "tokens": 47818
+        },
+        {
+          "t": 1790624018173,
+          "cost": 0.06757868,
+          "tokens": 97397
+        }
+      ],
+      "costSource": "native-estimate",
+      "costBasis": "standard-api-tokens",
+      "dispatchesComplete": true,
+      "rootOwnCostUSD": 0.06560479999999999,
+      "unlinkedCostUSD": 0,
+      "unlinkedAgentIds": [],
+      "rootOwnTokens": {
+        "input": 4,
+        "output": 676,
+        "cacheRead": 86324,
+        "cacheCreation": 10393,
+        "cacheCreation1h": 10393,
+        "total": 97397
+      },
+      "unlinkedTokens": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheCreation": 0,
+        "cacheCreation1h": 0,
+        "total": 0
+      },
+      "modelTimeline": [
+        {
+          "t": 1790624004616,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.045866,
+          "tokens": 47818
+        },
+        {
+          "t": 1790624018173,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.02171268,
+          "tokens": 49579
+        }
+      ],
+      "routedTurnsPct": 0,
+      "skillInvocations": [],
+      "agentInvocations": [],
+      "commandInvocations": [],
+      "sessionSource": "Pure chat"
+    }
+  ]
+}

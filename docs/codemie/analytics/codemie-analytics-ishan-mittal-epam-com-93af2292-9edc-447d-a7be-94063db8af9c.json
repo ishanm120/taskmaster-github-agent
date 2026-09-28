@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "generatedAt": "2026-09-28T19:27:10.878Z",
+    "rangeLabel": "all",
+    "agents": [
+      "claude"
+    ],
+    "projectFilter": "all",
+    "totals": {
+      "sessions": 1,
+      "durationMs": 646954,
+      "turns": 16,
+      "files": 15,
+      "netLines": 246,
+      "toolCallsTotal": 21,
+      "toolSuccessRate": 100,
+      "totalCostUSD": 0.88226336,
+      "cacheReadCostUSD": 0.21379116000000004,
+      "pricedSessions": 1
+    },
+    "unpricedModels": [],
+    "estimatedModels": [],
+    "localModels": [],
+    "coverage": [
+      {
+        "agentName": "claude",
+        "total": 1,
+        "priced": 1,
+        "withLog": 1
+      }
+    ],
+    "userEmail": "ishan_mittal@epam.com",
+    "periodStart": "2026-09-28T19:16:20.604Z",
+    "periodEnd": "2026-09-28T19:27:07.558Z"
+  },
+  "sessions": [
+    {
+      "sessionId": "93af2292-9edc-447d-a7be-94063db8af9c",
+      "agentName": "claude",
+      "provider": "ai-run-sso",
+      "title": "Read the five existing Copilot agent definitions under .github/agents/ and the four skills under .claude/skills/. Convert them into native Claude Code project subagents under .claude/agents/: - requirements.md - architect.md - developer.md - reviewer.md - pr.md Preserve their tested responsibilities, deliverables, approval gates, branch rules, verification rules, and PR requirements. Use valid Claude Code YAML frontmatter with name and description. Use native Claude tool names, not Copilot tool names. Remove Copilot-specific handoffs metadata. The SDLC coordinator will manage transitions. Requirements must be able to use the configured Atlassian MCP tools. Restrict other agents to the tools needed for their responsibilities. Do not modify .github/, application code, tests, or existing approved SDLC artifacts. Show the generated file list and explain any behavior that could not be translated directly.",
+      "project": "/Users/Ishan_Mittal/taskmaster-github-agent",
+      "branch": "claude-demo",
+      "startTime": 1790622980604,
+      "durationMs": 646954,
+      "turns": 16,
+      "fileOps": 15,
+      "linesAdded": 246,
+      "linesRemoved": 0,
+      "linesModified": 0,
+      "netLines": 246,
+      "filesChanged": 6,
+      "filesWritten": 6,
+      "filesEdited": 0,
+      "toolCallsTotal": 21,
+      "toolCallsSuccess": 21,
+      "toolCallsFailure": 0,
+      "models": [
+        "claude-sonnet-5"
+      ],
+      "languages": [
+        "markdown"
+      ],
+      "tools": [
+        {
+          "toolName": "Read",
+          "totalCalls": 9,
+          "successCount": 9,
+          "failureCount": 0,
+          "successRate": 100
+        },
+        {
+          "toolName": "Bash",
+          "totalCalls": 6,
+          "successCount": 6,
+          "failureCount": 0,
+          "successRate": 100
+        },
+        {
+          "toolName": "Write",
+          "totalCalls": 6,
+          "successCount": 6,
+          "failureCount": 0,
+          "successRate": 100
+        }
+      ],
+      "tokens": {
+        "input": 32,
+        "output": 28801,
+        "cacheRead": 971778,
+        "cacheCreation": 84223,
+        "cacheCreation1h": 84223,
+        "total": 1084834
+      },
+      "costUSD": 0.88226336,
+      "cacheReadCostUSD": 0.21379116000000004,
+      "perModelCost": [
+        {
+          "model": "claude-sonnet-5",
+          "tokens": {
+            "input": 2,
+            "output": 342,
+            "cacheRead": 0,
+            "cacheCreation": 46620,
+            "cacheCreation1h": 46620,
+            "total": 46964
+          },
+          "costUSD": 0.18990400000000002,
+          "unpriced": false
+        },
+        {
+          "model": "claude-sonnet-5",
+          "tokens": {
+            "input": 30,
+            "output": 28459,
+            "cacheRead": 971778,
+            "cacheCreation": 37603,
+            "cacheCreation1h": 37603,
+            "total": 1037870
+          },
+          "costUSD": 0.69235936,
+          "unpriced": false
+        }
+      ],
+      "hadLog": true,
+      "agentSessionFile": "/Users/Ishan_Mittal/.claude/projects/-Users-Ishan-Mittal-taskmaster-github-agent/ca3be7c5-6374-456e-800e-12783021be3b.jsonl",
+      "costSeries": [
+        {
+          "t": 1790622998632,
+          "cost": 0.18990400000000002,
+          "tokens": 46964
+        },
+        {
+          "t": 1790623005240,
+          "cost": 0.20968200000000004,
+          "tokens": 95086
+        },
+        {
+          "t": 1790623013328,
+          "cost": 0.24335256000000005,
+          "tokens": 147282
+        },
+        {
+          "t": 1790623020660,
+          "cost": 0.26653682000000006,
+          "tokens": 200969
+        },
+        {
+          "t": 1790623026885,
+          "cost": 0.2917761000000001,
+          "tokens": 256600
+        },
+        {
+          "t": 1790623041855,
+          "cost": 0.3231465600000001,
+          "tokens": 314380
+        },
+        {
+          "t": 1790623160120,
+          "cost": 0.47975466000000005,
+          "tokens": 385139
+        },
+        {
+          "t": 1790623210890,
+          "cost": 0.5544,
+          "tokens": 456596
+        },
+        {
+          "t": 1790623224666,
+          "cost": 0.58838626,
+          "tokens": 529512
+        },
+        {
+          "t": 1790623234835,
+          "cost": 0.62130266,
+          "tokens": 603471
+        },
+        {
+          "t": 1790623247621,
+          "cost": 0.65641444,
+          "tokens": 678811
+        },
+        {
+          "t": 1790623251888,
+          "cost": 0.68048772,
+          "tokens": 754372
+        },
+        {
+          "t": 1790623263380,
+          "cost": 0.70887498,
+          "tokens": 831127
+        },
+        {
+          "t": 1790623460882,
+          "cost": 0.78552584,
+          "tokens": 914033
+        },
+        {
+          "t": 1790623465812,
+          "cost": 0.82842364,
+          "tokens": 997341
+        },
+        {
+          "t": 1790623530895,
+          "cost": 0.88226336,
+          "tokens": 1084834
+        }
+      ],
+      "dispatches": [
+        {
+          "kind": "command",
+          "name": "agents",
+          "start": 1790623556308,
+          "durationMs": 0,
+          "id": "command:a94f7526-efd8-4144-ad73-8ca433d905e5:0",
+          "ownerAgentId": "93af2292-9edc-447d-a7be-94063db8af9c",
+          "relationshipStatus": "root",
+          "elapsedMs": 0,
+          "status": "completed",
+          "attributionStatus": "unavailable",
+          "attributionScope": "owner-window"
+        }
+      ],
+      "costSource": "native-estimate",
+      "costBasis": "standard-api-tokens",
+      "dispatchesComplete": true,
+      "rootOwnCostUSD": 0.8193216000000001,
+      "unlinkedCostUSD": 0,
+      "unlinkedAgentIds": [],
+      "rootOwnTokens": {
+        "input": 32,
+        "output": 28801,
+        "cacheRead": 971778,
+        "cacheCreation": 84223,
+        "cacheCreation1h": 84223,
+        "total": 1084834
+      },
+      "unlinkedTokens": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheCreation": 0,
+        "cacheCreation1h": 0,
+        "total": 0
+      },
+      "modelTimeline": [
+        {
+          "t": 1790622998632,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.189904,
+          "tokens": 46964
+        },
+        {
+          "t": 1790623005240,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.019778,
+          "tokens": 48122
+        },
+        {
+          "t": 1790623013328,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.03367056,
+          "tokens": 52196
+        },
+        {
+          "t": 1790623020660,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.02318426,
+          "tokens": 53687
+        },
+        {
+          "t": 1790623026885,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.02523928,
+          "tokens": 55631
+        },
+        {
+          "t": 1790623041855,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.03137046,
+          "tokens": 57780
+        },
+        {
+          "t": 1790623160120,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.1566081,
+          "tokens": 70759
+        },
+        {
+          "t": 1790623210890,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.07464534,
+          "tokens": 71457
+        },
+        {
+          "t": 1790623224666,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.03398626,
+          "tokens": 72916
+        },
+        {
+          "t": 1790623234835,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.0329164,
+          "tokens": 73959
+        },
+        {
+          "t": 1790623247621,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.03511178,
+          "tokens": 75340
+        },
+        {
+          "t": 1790623251888,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.02407328,
+          "tokens": 75561
+        },
+        {
+          "t": 1790623263380,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.02838726,
+          "tokens": 76755
+        },
+        {
+          "t": 1790623460882,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.07665086,
+          "tokens": 82906
+        },
+        {
+          "t": 1790623465812,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.0428978,
+          "tokens": 83308
+        },
+        {
+          "t": 1790623530895,
+          "model": "claude-sonnet-5",
+          "costUSD": 0.05383972,
+          "tokens": 87493
+        }
+      ],
+      "routedTurnsPct": 0,
+      "skillInvocations": [],
+      "agentInvocations": [],
+      "commandInvocations": [
+        {
+          "name": "agents",
+          "totalCalls": 1,
+          "successCount": 1,
+          "failureCount": 0
+        }
+      ],
+      "sessionSource": "Pure chat"
+    }
+  ]
+}
