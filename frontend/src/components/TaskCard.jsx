@@ -15,14 +15,19 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
     }
   };
 
-  const formatDate = (dateStr) => {
+  const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  const formatDueDate = (dateStr) => {
     if (!dateStr) return null;
-    try {
-      const d = new Date(dateStr);
-      return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
-    } catch {
-      return dateStr;
-    }
+    const parts = String(dateStr).split('-');
+    if (parts.length !== 3) return null;
+    const [yearStr, monthStr, dayStr] = parts;
+    const year = Number(yearStr);
+    const month = Number(monthStr);
+    const day = Number(dayStr);
+    if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day)) return null;
+    if (month < 1 || month > 12 || day < 1 || day > 31) return null;
+    return `${day} ${MONTHS[month - 1]} ${year}`;
   };
 
   return (
@@ -67,12 +72,10 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
             </span>
           )}
 
-          {task.due_date && (
-            <span className="task-date">
-              <Calendar size={12} />
-              {formatDate(task.due_date)}
-            </span>
-          )}
+          <span className="task-date">
+            <Calendar size={12} />
+            {formatDueDate(task.due_date) || 'No Due Date'}
+          </span>
         </div>
       </div>
     </div>
