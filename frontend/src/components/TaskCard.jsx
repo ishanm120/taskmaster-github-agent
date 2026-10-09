@@ -15,11 +15,27 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
     }
   };
 
+  // due_date is a date-only "YYYY-MM-DD" string. We must NOT run it through
+  // `new Date(dateStr)` + local-timezone `toLocaleDateString`: `new Date('YYYY-MM-DD')`
+  // is parsed as UTC midnight, and rendering it with local-timezone fields shifts
+  // the displayed day back by one in any timezone behind UTC (e.g. US/Americas).
+  // Instead, parse the stored calendar-date components directly so the displayed
+  // date always matches the stored value regardless of the viewer's timezone.
+  // Month name is taken from a fixed 3-letter table (not Intl) to guarantee the
+  // "Sep" (3-letter) shape required by AC-002, since locale ICU data can render
+  // the 4-letter "Sept" instead.
+  const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
   const formatDate = (dateStr) => {
     if (!dateStr) return null;
     try {
-      const d = new Date(dateStr);
-      return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+      const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(dateStr);
+      if (!match) throw new Error('Unrecognized date format');
+      const [, yearStr, monthStr, dayStr] = match;
+      const day = parseInt(dayStr, 10);
+      const month = MONTHS[parseInt(monthStr, 10) - 1];
+      if (!month || Number.isNaN(day)) throw new Error('Invalid date components');
+      return `${day} ${month} ${yearStr}`;
     } catch {
       return dateStr;
     }
@@ -67,12 +83,10 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
             </span>
           )}
 
-          {task.due_date && (
-            <span className="task-date">
-              <Calendar size={12} />
-              {formatDate(task.due_date)}
-            </span>
-          )}
+          <span className="task-date">
+            <Calendar size={12} />
+            {task.due_date ? formatDate(task.due_date) : 'No Due Date'}
+          </span>
         </div>
       </div>
     </div>
