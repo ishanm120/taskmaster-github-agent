@@ -18,8 +18,18 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
   const formatDate = (dateStr) => {
     if (!dateStr) return null;
     try {
-      const d = new Date(dateStr);
-      return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+      const date = new Date(`${dateStr}T00:00:00Z`);
+      if (Number.isNaN(date.getTime())) return dateStr;
+      const parts = new Intl.DateTimeFormat('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        timeZone: 'UTC',
+      }).formatToParts(date);
+      const values = Object.fromEntries(
+        parts.filter(({ type }) => type !== 'literal').map(({ type, value }) => [type, value])
+      );
+      return `${values.day} ${values.month} ${values.year}`;
     } catch {
       return dateStr;
     }
@@ -67,12 +77,10 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
             </span>
           )}
 
-          {task.due_date && (
-            <span className="task-date">
-              <Calendar size={12} />
-              {formatDate(task.due_date)}
-            </span>
-          )}
+          <span className="task-date">
+            <Calendar size={12} />
+            {task.due_date ? formatDate(task.due_date) : 'No Due Date'}
+          </span>
         </div>
       </div>
     </div>
