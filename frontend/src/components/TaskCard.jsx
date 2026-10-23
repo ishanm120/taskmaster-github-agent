@@ -27,8 +27,8 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
 
   return (
     <div className={`glass-card task-card ${isCompleted ? 'completed' : ''}`} data-task-id={task.id}>
-      <div 
-        className={`custom-checkbox ${isCompleted ? 'checked' : ''}`} 
+      <div
+        className={`custom-checkbox ${isCompleted ? 'checked' : ''}`}
         onClick={() => onToggleComplete(task)}
         role="checkbox"
         aria-checked={isCompleted}
@@ -42,8 +42,8 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
         <div className="task-header">
           <h4 className="task-title">{task.title}</h4>
           <div className="task-actions">
-            <button 
-              className="delete-btn" 
+            <button
+              className="delete-btn"
               onClick={() => onDelete(task.id)}
               title="Delete task"
               id={`delete-task-${task.id}`}
@@ -59,7 +59,7 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
 
         <div className="task-meta">
           {getPriorityBadge(task.priority)}
-          
+
           {task.category && (
             <span className="badge badge-category">
               <Tag size={10} />
