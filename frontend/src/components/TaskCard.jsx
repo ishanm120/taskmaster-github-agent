@@ -18,18 +18,8 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
   const formatDate = (dateStr) => {
     if (!dateStr) return null;
     try {
-      const date = new Date(`${dateStr}T00:00:00Z`);
-      if (Number.isNaN(date.getTime())) return dateStr;
-      const parts = new Intl.DateTimeFormat('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        timeZone: 'UTC',
-      }).formatToParts(date);
-      const values = Object.fromEntries(
-        parts.filter(({ type }) => type !== 'literal').map(({ type, value }) => [type, value])
-      );
-      return `${values.day} ${values.month} ${values.year}`;
+      const d = new Date(dateStr);
+      return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
     } catch {
       return dateStr;
     }
@@ -37,8 +27,8 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
 
   return (
     <div className={`glass-card task-card ${isCompleted ? 'completed' : ''}`} data-task-id={task.id}>
-      <div 
-        className={`custom-checkbox ${isCompleted ? 'checked' : ''}`} 
+      <div
+        className={`custom-checkbox ${isCompleted ? 'checked' : ''}`}
         onClick={() => onToggleComplete(task)}
         role="checkbox"
         aria-checked={isCompleted}
@@ -52,8 +42,8 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
         <div className="task-header">
           <h4 className="task-title">{task.title}</h4>
           <div className="task-actions">
-            <button 
-              className="delete-btn" 
+            <button
+              className="delete-btn"
               onClick={() => onDelete(task.id)}
               title="Delete task"
               id={`delete-task-${task.id}`}
@@ -69,7 +59,7 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
 
         <div className="task-meta">
           {getPriorityBadge(task.priority)}
-          
+
           {task.category && (
             <span className="badge badge-category">
               <Tag size={10} />
@@ -77,10 +67,12 @@ export function TaskCard({ task, onToggleComplete, onDelete }) {
             </span>
           )}
 
-          <span className="task-date">
-            <Calendar size={12} />
-            {task.due_date ? formatDate(task.due_date) : 'No Due Date'}
-          </span>
+          {task.due_date && (
+            <span className="task-date">
+              <Calendar size={12} />
+              {formatDate(task.due_date)}
+            </span>
+          )}
         </div>
       </div>
     </div>

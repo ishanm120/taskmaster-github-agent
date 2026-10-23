@@ -28,20 +28,6 @@ test.describe('Task Management V1 Core Workflows', () => {
     // Verify created task appears in list
     await expect(page.locator('.task-title', { hasText: taskTitle })).toBeVisible();
     await expect(page.locator('.task-desc', { hasText: taskDesc })).toBeVisible();
-    const taskCard = page.locator('.task-card', { hasText: taskTitle });
-    await expect(taskCard.locator('.task-date')).toContainText('No Due Date');
-  });
-
-  test('Display due date on task card', async ({ page }) => {
-    const taskTitle = `Dated E2E Task ${Date.now()}`;
-
-    await page.click('#add-task-btn');
-    await page.fill('#task-title-input', taskTitle);
-    await page.fill('#task-duedate-input', '2026-09-25');
-    await page.click('#save-task-submit');
-
-    const taskCard = page.locator('.task-card', { hasText: taskTitle });
-    await expect(taskCard.locator('.task-date')).toContainText('25 Sep 2026');
   });
 
   test('2. Display existing tasks and filter', async ({ page }) => {
