@@ -4,7 +4,7 @@ test.describe('Task Management V1 Core Workflows', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:3000');
     // Ensure app renders properly
-    await expect(page.locator('h1.brand-title')).toHaveText('TaskMaster Pro-Github');
+    await expect(page.locator('h1.brand-title')).toHaveText('TaskMaster Pro');
   });
 
   test('1. Create a new task', async ({ page }) => {
